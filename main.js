@@ -70,7 +70,7 @@ async function getPlayerData(name) {
     playerData.classList.add("playerData");
     let playerImg = document.createElement("img");
     playerImg.classList.add("plyayerImg");
-    playerImg.src = `http://ddragon.leagueoflegends.com/cdn/12.17.1/img/profileicon/${data.profileIconId}.png`;
+    playerImg.src = `https://ddragon.leagueoflegends.com/cdn/12.17.1/img/profileicon/${data.profileIconId}.png`;
     let playerName = document.createElement("p");
     playerName.classList.add("playerName");
     playerName.innerHTML = `${data.name}`;
@@ -167,10 +167,9 @@ async function getChampionData(name) {
   let championName = name[0].toUpperCase() + name.substr(1).toLowerCase();
   try {
     let res = await fetch(
-      `http://ddragon.leagueoflegends.com/cdn/12.18.1/data/en_US/champion/${championName}.json`
+      `https://ddragon.leagueoflegends.com/cdn/12.18.1/data/en_US/champion/${championName}.json`
     );
     let data = await res.json();
-    console.log(data.data[championName]);
     dataContainer.innerHTML = "";
     let championData = document.createElement("div");
     championData.classList.add("championData");
@@ -178,7 +177,7 @@ async function getChampionData(name) {
     let firstBox = document.createElement("div");
     let imgholder = document.createElement("div");
     let champImg = document.createElement("img");
-    champImg.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${data.data[championName].name}_0.jpg`;
+    champImg.src = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${data.data[championName].name}_0.jpg`;
     imgholder.appendChild(champImg);
     firstBox.appendChild(imgholder);
     let champInfo = document.createElement("div");
@@ -286,7 +285,7 @@ async function getChampionData(name) {
     passive.dataset.cooldown = "0";
     skillsArray.push(passive);
     let passiveImg = document.createElement("img");
-    passiveImg.src = `http://ddragon.leagueoflegends.com/cdn/12.18.1/img/passive/${data.data[championName].passive.image.full}`;
+    passiveImg.src = `https://ddragon.leagueoflegends.com/cdn/12.18.1/img/passive/${data.data[championName].passive.image.full}`;
     passive.appendChild(passiveImg);
     skills.appendChild(passive);
     data.data[championName].spells.forEach((spell, index) => {
@@ -296,7 +295,7 @@ async function getChampionData(name) {
       spellDiv.dataset.cooldown =
         data.data[championName].spells[index].cooldownBurn;
       let spellImg = document.createElement("img");
-      spellImg.src = `http://ddragon.leagueoflegends.com/cdn/12.18.1/img/spell/${data.data[championName].spells[index].image.full}`;
+      spellImg.src = `https://ddragon.leagueoflegends.com/cdn/12.18.1/img/spell/${data.data[championName].spells[index].image.full}`;
       spellDiv.appendChild(spellImg);
       skills.appendChild(spellDiv);
       skillsArray.push(spellDiv);
@@ -316,7 +315,6 @@ async function getChampionData(name) {
 
     skillsArray.forEach((div) => {
       div.addEventListener("click", function () {
-        console.log("div");
         skillsArray.forEach((div) => div.classList.remove("active"));
         this.classList.add("active");
         spellName.innerHTML = "";
@@ -343,7 +341,7 @@ async function getChampionData(name) {
     iconsArray = [];
     data.data[championName].skins.forEach((skin, index) => {
       let skinImg = document.createElement("img");
-      skinImg.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${skin.num}.jpg`;
+      skinImg.src = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${skin.num}.jpg`;
       if (index === 0) {
         skinsImgDiv.appendChild(skinImg);
       }
