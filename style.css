@@ -29,6 +29,11 @@
     width: 95%;
   }
 }
+@media (max-width: 768px) {
+  * {
+    cursor: none !important;
+  }
+}
 
 body {
   font-family: "Marko One", serif;
@@ -286,6 +291,10 @@ main .invalidInput {
   }
 }
 @media (max-width: 768px) {
+  main .invalidInput {
+    font-size: 0.8rem;
+    margin: 0 auto;
+  }
   main {
     min-height: 95vh;
   }
@@ -462,6 +471,10 @@ main .rankAndMatchsData .rank .losses > p:nth-child(3) {
   main .rankAndMatchsData .rank .losses svg circle {
     r: 45;
     stroke-dasharray: 283;
+    stroke-dashoffset: 50;
+  }
+  main .rankAndMatchsData .rank .losses svg circle {
+    stroke-dashoffset: 80;
   }
   main .rankAndMatchsData .rank .wins > p:nth-child(2) {
     font-size: 1rem;
@@ -549,9 +562,13 @@ main .rankAndMatchsData .rank .losses > p:nth-child(3) {
   main .rankAndMatchsData .rank .wins svg circle,
   main .rankAndMatchsData .rank .losses svg circle {
     r: 25;
-    stroke-dasharray: 283;
+    stroke-dasharray: 157;
     cx: 30;
     cy: 30;
+    stroke-dashoffset: 35;
+  }
+  main .rankAndMatchsData .rank .losses svg circle {
+    stroke-dashoffset: 65;
   }
   main .rankAndMatchsData .rank .wins > p:nth-child(2),
   main .rankAndMatchsData .rank .losses > p:nth-child(2) {
