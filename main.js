@@ -9,7 +9,7 @@ let selectMenuOptions = document.querySelectorAll(
   "header .container .search .type .options li"
 );
 let searchButton = document.querySelector("header .container .search .button");
-let apiKey = "RGAPI-8ff1dfa4-c44b-4503-8ed6-e67cf859b340";
+let apiKey = "RGAPI-47c7054e-dd8b-4784-b98b-f8bc5429b1ea";
 let dataContainer = document.querySelector("main .container");
 let inputData = document.querySelector("header .container .search input");
 let skillsArray = [];
@@ -395,7 +395,7 @@ async function getChampionData(name) {
         if (arrow.classList.contains("right")) {
           document
             .querySelector("main .championData > div:nth-child(1)")
-            .style.setProperty("margin-left", `calc(-103% *${boxsCounter}`);
+            .style.setProperty("margin-left", `calc(-104% *${boxsCounter}`);
           boxsCounter++;
           if (boxsCounter > 1) {
             leftArrowIcon.classList.remove("disabled");
@@ -407,7 +407,7 @@ async function getChampionData(name) {
           boxsCounter--;
           document
             .querySelector("main .championData > div:nth-child(1)")
-            .style.setProperty("margin-left", `calc(-103% *${boxsCounter - 1}`);
+            .style.setProperty("margin-left", `calc(-104% *${boxsCounter - 1}`);
           if (boxsCounter === 1) {
             leftArrowIcon.classList.add("disabled");
           }

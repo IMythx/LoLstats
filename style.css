@@ -18,16 +18,18 @@
   padding-right: 15px;
   margin: 0 auto;
 }
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
   }
 }
+
+@media (max-width: 1199px) {
+  .container {
+    width: 95%;
+  }
+}
+
 body {
   font-family: "Marko One", serif;
 }
@@ -132,10 +134,12 @@ header .search .type .options {
   opacity: 0;
   visibility: hidden;
   list-style: none;
+  display: none;
 }
 header .search .type .options.active {
   visibility: visible;
   opacity: 1;
+  display: flex;
 }
 
 header .search .type .options li {
@@ -173,26 +177,71 @@ header .search .button {
 header .search .button:hover {
   background-color: #d4b960;
 }
+@media (max-width: 768px) {
+  header .container {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
+  header .logo img {
+    width: 45px;
+    flex-basis: 30%;
+  }
+  header .container > p {
+    font-size: 1.6rem;
+    flex-basis: 70%;
+  }
+  header .search {
+    flex-wrap: initial;
+    flex-direction: column;
+    row-gap: 0.6rem;
+    padding: 0.6rem 1rem;
+  }
+  header .search input {
+    width: 90%;
+    flex-basis: initial;
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+  header .search p {
+    width: 90%;
+    flex-basis: initial;
+    font-size: 0.8rem;
+  }
+  header .search .type {
+    width: 90%;
+    flex-basis: initial;
+  }
+  header .search .type .input {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+  header .search .type .options li {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+  header .search .button {
+    margin-top: 0;
+    font-size: 0.7rem;
+  }
+}
 main {
-  background-image: url("cropped-1280-800-6026x70.jpg");
   background-repeat: no-repeat;
-  background-image: linear-gradient(0.5turn, transparent 16rem, #191820 25rem),
+  background-image: linear-gradient(0.5turn, transparent 25vw, #191820 33vw),
     url("cropped-1280-800-6026x70.jpg");
   background-size: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
-main .container {
-  width: 100%;
-}
+
 main .vid {
   width: fit-content;
-  margin: 12rem auto 5rem auto;
+  margin: 15vw auto 7vw auto;
   position: relative;
 }
 main .vid video {
-  max-width: 800px;
+  max-width: 63vw;
   height: 500px;
   object-fit: cover;
 }
@@ -231,8 +280,28 @@ main .invalidInput {
   padding: 4rem;
   box-shadow: 1px 1px 13px 0px;
 }
+@media (max-width: 992px) {
+  main .vid {
+    margin-top: 20vw;
+  }
+}
+@media (max-width: 768px) {
+  main {
+    min-height: 95vh;
+  }
+  main .vid {
+    margin: 50vw auto 26vw auto;
+  }
+  main .vid video {
+    height: 350px;
+    max-width: 80vw;
+  }
+  main .text {
+    font-size: 2.5rem;
+  }
+}
 main .playerData {
-  margin: 30rem auto 15rem auto;
+  margin: 40vw auto 15vw auto;
   padding: 2rem;
   display: flex;
   justify-content: space-between;
@@ -243,7 +312,6 @@ main .playerData .playerInfo {
   display: flex;
   flex-direction: column;
   gap: 10rem;
-  padding: 1rem;
   justify-content: center;
   align-items: center;
 }
@@ -367,16 +435,142 @@ main .rankAndMatchsData .rank .losses > p:nth-child(2) {
 main .rankAndMatchsData .rank .losses > p:nth-child(3) {
   font-size: 1.5rem;
 }
+@media (max-width: 992px) {
+  main .rankAndMatchsData .notRanked {
+    font-size: 1rem;
+  }
+  main .playerData .playerInfo {
+    gap: 7rem;
+  }
+  main .playerData .playerInfo img {
+    width: 200px;
+  }
+  main .playerData .playerInfo p {
+    letter-spacing: 1.5px;
+    font-size: 0.9rem;
+  }
+  main .rankAndMatchsData .rank > div > p:first-child {
+    font-size: 1rem;
+  }
+  main .rankAndMatchsData .rank > div img {
+    width: 120px;
+  }
+  main .rankAndMatchsData .rank > div > p:last-child {
+    font-size: 0.8rem;
+  }
+  main .rankAndMatchsData .rank .wins svg circle,
+  main .rankAndMatchsData .rank .losses svg circle {
+    r: 45;
+    stroke-dasharray: 283;
+  }
+  main .rankAndMatchsData .rank .wins > p:nth-child(2) {
+    font-size: 1rem;
+  }
+  main .rankAndMatchsData .rank .wins > p:nth-child(3) {
+    font-size: 1rem;
+  }
+  main .rankAndMatchsData .rank .losses > p:nth-child(3) {
+    font-size: 1rem;
+  }
+  main .rankAndMatchsData .rank .losses > p:nth-child(2) {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main .playerData {
+    flex-direction: column;
+    gap: 4rem;
+    margin-top: 60vw;
+  }
+  main .playerData .playerInfo {
+    gap: 3rem;
+    flex-direction: row;
+  }
+  main .rankAndMatchsData .notRanked {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+  main .playerData .playerInfo p:nth-of-type(2) {
+    margin-left: -31.5%;
+    margin-top: 27%;
+  }
+  main .rankAndMatchsData {
+    flex-direction: row;
+    gap: 3rem;
+  }
+  main .rankAndMatchsData .rank:first-child {
+    padding-bottom: 0;
+    border-bottom: none;
+    position: relative;
+  }
+  main .rankAndMatchsData .rank:first-child::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 85%;
+    top: 13%;
+    left: 121%;
+    background-color: #000;
+  }
+  main .playerData .playerInfo img {
+    width: 110px;
+  }
+  main .playerData .playerInfo p {
+    letter-spacing: 1px;
+    font-size: 0.6rem;
+  }
+  main .rankAndMatchsData .rank > div > p:first-child {
+    font-size: 0.8rem;
+    width: 130%;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  main .rankAndMatchsData .rank > div img {
+    width: 90px;
+  }
+  main .rankAndMatchsData .rank > div > p:last-child {
+    font-size: 0.6rem;
+  }
+  main .rankAndMatchsData .rank {
+    column-gap: 1rem;
+    justify-content: space-between;
+  }
+  main .rankAndMatchsData .rank .wins,
+  main .rankAndMatchsData .rank .losses {
+    width: 40%;
+  }
+
+  main .rankAndMatchsData .rank .wins svg,
+  main .rankAndMatchsData .rank .losses svg {
+    width: 56px;
+    height: 56px;
+  }
+  main .rankAndMatchsData .rank .wins svg circle,
+  main .rankAndMatchsData .rank .losses svg circle {
+    r: 25;
+    stroke-dasharray: 283;
+    cx: 30;
+    cy: 30;
+  }
+  main .rankAndMatchsData .rank .wins > p:nth-child(2),
+  main .rankAndMatchsData .rank .losses > p:nth-child(2) {
+    font-size: 0.8rem;
+    top: 33%;
+    left: 56%;
+  }
+}
+
 main .container:has(.championData) {
   padding: 0;
 }
 main .championData {
-  margin: 6rem auto 0 auto;
+  margin: 38vw auto 0 auto;
   display: flex;
   align-items: center;
   overflow: hidden;
-  gap: 2rem;
-  padding: 0.1rem 2rem;
+  gap: 4%;
+  padding: 0.1rem 2%;
   position: relative;
 }
 main .championData .left,
@@ -414,35 +608,35 @@ main .championData > div {
 main .championData > div:nth-child(1) {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 3rem;
 }
 main .championData > div:nth-child(1) > div:nth-child(1) {
-  width: fit-content;
+  flex-shrink: 0;
+  align-self: center;
+}
+main .championData > div:nth-child(1) > div:nth-child(1) img {
   max-width: 100%;
 }
 main .championData > div:nth-child(1) > div:nth-child(2) {
   flex-basis: 100%;
   color: #fff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  gap: 2rem;
 }
 main .championData > div:nth-child(1) > div:nth-child(2) > p:nth-child(1) {
   font-size: 2.5rem;
   letter-spacing: 2px;
-  margin-top: -18rem;
 }
 main .championData > div:nth-child(1) > div:nth-child(2) > p:nth-child(2) {
-  margin-top: -5rem;
   font-size: 1.5rem;
   letter-spacing: 1px;
+  margin-bottom: 4rem;
 }
 main .championData > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) {
   font-size: 2rem;
   letter-spacing: 2px;
-  margin-bottom: -17rem;
 }
 
 main .championData > div:nth-child(2) {
@@ -476,7 +670,7 @@ main .championData > div:nth-child(2) > div > div > :first-child {
 }
 
 main .championData > div:nth-child(2) > div > div > :nth-child(3) {
-  width: 400px;
+  width: 35vw;
   height: 5px;
 }
 main
@@ -614,6 +808,9 @@ main .championData > div:nth-child(3) > :last-child > p {
   gap: 1rem;
   align-items: center;
 }
+main .championData > div:nth-child(3) > :last-child > p > div > img {
+  max-width: 100%;
+}
 main .championData > div:nth-child(3) > :last-child > p p {
   color: #c82a77;
 }
@@ -623,7 +820,6 @@ main .championData > div:nth-child(4) {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 20rem;
   margin-bottom: 1rem;
   padding-top: 1rem;
 }
@@ -677,6 +873,165 @@ main .championData > div:nth-child(4) > div:nth-child(3) div p {
   text-align: center;
   font-size: 0.8rem;
 }
+@media (max-width: 992px) {
+  main .championData .left,
+  main .championData .right {
+    font-size: 5rem;
+  }
+  main .championData > div {
+    padding: 1rem;
+  }
+  main .championData > div:nth-child(1) > div:nth-child(1) {
+    width: 45%;
+  }
+  main .championData > div:nth-child(1) > div:nth-child(2) > p:nth-child(1) {
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+  }
+  main .championData > div:nth-child(1) > div:nth-child(2) > p:nth-child(2) {
+    font-size: 1rem;
+    margin-bottom: 4rem;
+  }
+  main .championData > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) {
+    font-size: 1.2rem;
+  }
+  main .championData > div:nth-child(2) {
+    padding: 3rem 2rem;
+  }
+  main .championData > div:nth-child(2) > p {
+    font-size: 1.8rem;
+    width: 47%;
+  }
+  main .championData > div:nth-child(2) > div {
+    gap: 4rem;
+  }
+  main .championData > div:nth-child(3) > :last-child {
+    width: 40vw;
+  }
+  main .championData > div:nth-child(3) > :first-child {
+    font-size: 1.8rem;
+  }
+  main .championData > div:nth-child(3) > div {
+    gap: 4rem;
+  }
+  main .championData > div:nth-child(3) > div > div {
+    flex-shrink: 0;
+    width: 50px;
+  }
+  main .championData > div:nth-child(3) > div > div::before {
+    font-size: 1rem;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+  }
+  main .championData > div:nth-child(3) > :last-child > p,
+  main .championData > div:nth-child(3) > :last-child > p p {
+    font-size: 0.9rem;
+  }
+  main .championData > div:nth-child(3) > :last-child > p > div {
+    width: 50px;
+  }
+  main .championData > div:nth-child(4) {
+    margin-top: 0;
+  }
+  main .championData > div:nth-child(4) > p {
+    font-size: 1.8rem;
+  }
+  main .championData > div:nth-child(4) > div:nth-child(3) div div {
+    width: 55px;
+    height: 55px;
+  }
+  main .championData > div:nth-child(4) > div:nth-child(3) div p {
+    font-size: 0.55rem;
+  }
+}
+@media (max-width: 768px) {
+  main .championData .left,
+  main .championData .right {
+    font-size: 3rem;
+  }
+  main .championData > div:nth-child(1) {
+    gap: 1rem;
+  }
+  main .championData > div:nth-child(1) > div:nth-child(1) {
+    max-width: 35%;
+  }
+  main .championData > div:nth-child(1) > div:nth-child(2) {
+    gap: 1rem;
+  }
+  main .championData > div:nth-child(1) > div:nth-child(2) > p:nth-child(1) {
+    font-size: 1.1rem;
+  }
+  main .championData > div:nth-child(1) > div:nth-child(2) > p:nth-child(2) {
+    font-size: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  main .championData > div:nth-child(1) > div:nth-child(2) > p:nth-child(3) {
+    font-size: 0.6rem;
+  }
+  main .championData > div:nth-child(2) {
+    flex-wrap: wrap;
+    padding: 1rem 1rem;
+  }
+  main .championData > div:nth-child(2) > p {
+    flex-basis: 100%;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  main .championData > div:nth-child(2) > div {
+    flex-basis: 100%;
+    gap: 2rem;
+  }
+  main .championData > div:nth-child(2) > div > div {
+    row-gap: 0.5rem;
+  }
+  main .championData > div:nth-child(2) > div > div > :first-child,
+  main .championData > div:nth-child(2) > div > div > :last-child {
+    font-size: 0.6rem;
+  }
+  main .championData > div:nth-child(2) > div > div > span {
+    font-size: 1rem;
+  }
+  main .championData > div:nth-child(2) > div > div > :nth-child(3) {
+    width: 70vw;
+    height: 3px;
+  }
+  main .championData > div:nth-child(3) {
+    gap: 4.5rem;
+  }
+  main .championData > div:nth-child(3) > :first-child {
+    font-size: 1.1rem;
+  }
+  main .championData > div:nth-child(3) > div {
+    gap: 1.8rem;
+  }
+  main .championData > div:nth-child(3) > div > div,
+  main .championData > div:nth-child(3) > :last-child > p > div {
+    width: 40px;
+  }
+
+  main .championData > div:nth-child(3) > div > div::before {
+    font-size: 0.6rem;
+    width: 17px;
+    height: 17px;
+    line-height: 17px;
+  }
+  main .championData > div:nth-child(3) > :last-child > p,
+  main .championData > div:nth-child(3) > :last-child > p p {
+    font-size: 0.6rem;
+  }
+  main .championData > div:nth-child(4) > p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  main .championData > div:nth-child(4) > div:nth-child(3) div div {
+    width: 45px;
+    height: 45px;
+  }
+  main .championData > div:nth-child(4) > div:nth-child(3) div p {
+    font-size: 1.2vw;
+  }
+}
 
 footer {
   background-color: #000;
@@ -684,4 +1039,10 @@ footer {
   text-align: center;
   padding: 0.6rem 0;
   font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  footer {
+    font-size: 0.65rem;
+  }
 }
