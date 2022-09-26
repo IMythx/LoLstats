@@ -9,7 +9,7 @@ let selectMenuOptions = document.querySelectorAll(
   "header .container .search .type .options li"
 );
 let searchButton = document.querySelector("header .container .search .button");
-let apiKey = "RGAPI-47c7054e-dd8b-4784-b98b-f8bc5429b1ea";
+let apiKey = "RGAPI-d63846e6-934b-4765-b5a8-eab2b5105d9c";
 let dataContainer = document.querySelector("main .container");
 let inputData = document.querySelector("header .container .search input");
 let skillsArray = [];
@@ -48,6 +48,14 @@ selectMenuOptions.forEach((Option) => {
 searchButton.addEventListener("click", getData);
 
 function getData() {
+  let spinner = document.createElement("div");
+  spinner.classList.add("spinner");
+  let spinnerSpan = document.createElement("span");
+  spinner.appendChild(spinnerSpan);
+  spinner.appendChild(spinnerSpan.cloneNode(true));
+  spinner.appendChild(spinnerSpan.cloneNode(true));
+  dataContainer.innerHTML = "";
+  dataContainer.appendChild(spinner);
   if (selectMenuInput.innerHTML.toLowerCase() === "player name") {
     getPlayerData(inputData.value);
   } else {
