@@ -24,11 +24,6 @@
     width: 95%;
   }
 }
-@media (max-width: 992px) {
-  * {
-    cursor: none !important;
-  }
-}
 
 body {
   font-family: "Marko One", serif;
@@ -158,10 +153,10 @@ header .search .button {
   padding: 0.5rem 1.2rem;
   background-color: #dbc476;
   border-radius: 8px;
-  -webkit-border-radius: ;
-  -moz-border-radius: ;
-  -ms-border-radius: ;
-  -o-border-radius: ;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
   margin-top: 2rem;
   cursor: pointer;
   transition: 0.3s;
@@ -210,10 +205,12 @@ header .search .button:hover {
   header .search .type .input {
     font-size: 0.7rem;
     padding: 0.5rem;
+    cursor: none;
   }
   header .search .type .options li {
     font-size: 0.7rem;
     padding: 0.5rem;
+    cursor: none;
   }
   header .search .button {
     margin-top: 0;
@@ -1055,6 +1052,7 @@ main .championData > div:nth-child(4) > div:nth-child(3) div p {
   main .championData .left,
   main .championData .right {
     font-size: 3rem;
+    cursor: none;
   }
   main .championData > div:nth-child(1) {
     gap: 1rem;
@@ -1114,6 +1112,7 @@ main .championData > div:nth-child(4) > div:nth-child(3) div p {
   main .championData > div:nth-child(3) > div > div,
   main .championData > div:nth-child(3) > :last-child > p > div {
     width: 40px;
+    cursor: none;
   }
 
   main .championData > div:nth-child(3) > div > div::before {
@@ -1133,6 +1132,7 @@ main .championData > div:nth-child(4) > div:nth-child(3) div p {
   main .championData > div:nth-child(4) > div:nth-child(3) div div {
     width: 45px;
     height: 45px;
+    cursor: none;
   }
   main .championData > div:nth-child(4) > div:nth-child(3) div p {
     font-size: 1.2vw;
