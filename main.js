@@ -313,7 +313,7 @@ async function getChampionData(name) {
     spellName.appendChild(passive.cloneNode(true));
     spellName.append(passive.dataset.name);
     let spellDesc = document.createElement("p");
-    spellDesc.innerHTML = passive.dataset.desc;
+    spellDesc.innerHTML = passive.dataset.desc.replaceAll(/<.*?>/gi, "");
     let spellCd = document.createElement("p");
     spellCd.innerHTML = `<p>Cooldown:</p> ${passive.dataset.cooldown}`;
     spellInfo.appendChild(spellName);
