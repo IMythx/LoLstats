@@ -9,7 +9,7 @@ let selectMenuOptions = document.querySelectorAll(
   "header .container .search .type .options li"
 );
 let searchButton = document.querySelector("header .container .search .button");
-let apiKey = "RGAPI-7b1e1392-4eb1-4ce2-9211-d8f7c7bc9b6c";
+let apiKey = "RGAPI-02cfc2c1-1ae7-480f-b495-3ab5662d54ce";
 let dataContainer = document.querySelector("main .container");
 let inputData = document.querySelector("header .container .search input");
 let skillsArray = [];
